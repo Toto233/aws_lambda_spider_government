@@ -40,9 +40,9 @@ module.exports = function(){
         var item = news[i];
         item.department=item.author;
         delete item.author;
-        item.async_google_calendar = false;
+        item["async_google_calendar"]=false;
         item.date=item.pubDate;
-        item.category = item.author;
+        item["category"]=item.author;
         delete item.pubDate;
         saveData(item);
       }
