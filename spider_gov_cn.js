@@ -40,7 +40,6 @@ module.exports = function(){
         item.department=item.author;
         item.date=item.pubDate;
         item.category=item.author;
-        console.log(item)
         saveData(item);
       }
     }
@@ -73,7 +72,9 @@ function saveData(item){
           } else {
             // TODO return what?
           }
-        }).then(function(){
-          console.log(formatDate(new Date(),'yyyy-MM-dd hh:mm:ss') + "保存数据成功:"+JSON.stringify(item));
+        }).then(function(data){
+          if(data) {
+            console.log(formatDate(new Date(),'yyyy-MM-dd hh:mm:ss') + "保存数据成功:"+JSON.stringify(item));
+          }
         });
 }
