@@ -34,16 +34,15 @@ module.exports = function(){
     console.log(formatDate(new Date(),'yyyy-MM-dd hh:mm:ss') + "抓取gov.cn数据完成");
     return response.json();
   }).then(function(news){
-    console.log(Array.isArray(news));
     for(var i in news) {
       if(i <= 10){
         var item = news[i];
         item.department=item.author;
         delete item.author;
-        item["async_google_calendar"]=false;
         item.date=item.pubDate;
         item["category"]=item.author;
         delete item.pubDate;
+        console.log(item)
         saveData(item);
       }
     }
@@ -65,10 +64,11 @@ function saveData(item){
                 TableName:tableName,
                 Item:{
                     "title": item.title,
-                    "category": item.categoryName,
+                    "category": item.category,
                     "department": item.department,
                     "link":item.link,
-                    "date": formatDate(new Date())
+                    "date": formatDate(new Date()),
+                    "async_google_calendar":false
                 }
             };
             return docClient.put(params).promise();
