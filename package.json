@@ -1,0 +1,16 @@
+{
+  "name": "aws_lambda_spider_csrc",
+  "version": "1.0.0",
+  "description": "使用aws lamdba 抓取证监会的最新信息",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.192.0",
+    "cheerio": "^1.0.0-rc.2",
+    "node-fetch": "^2.0.0"
+  }
+}
