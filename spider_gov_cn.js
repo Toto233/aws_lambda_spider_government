@@ -38,10 +38,8 @@ module.exports = function(){
       if(i <= 10){
         var item = news[i];
         item.department=item.author;
-        delete item.author;
         item.date=item.pubDate;
-        item["category"]=item.author;
-        delete item.pubDate;
+        item.category=item.author;
         console.log(item)
         saveData(item);
       }
